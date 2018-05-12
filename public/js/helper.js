@@ -95,7 +95,7 @@ var Helper = (function() {
   folderTabs.addEventListener('click', async (e) => {
     const id = e.target.getAttribute('data-id');
     //retrieve folder data
-    console.log(id);
+    // console.log(id);
     const res = await fetch(`/api/folder/${id}`);
     const data = await res.json();
     renderFolderContent(data);
