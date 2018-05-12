@@ -18,7 +18,7 @@ var LinkSchema = new Schema({
     }
 });
 
-//on save hook, encrypt password
+//on save hook, create the shortened link
 LinkSchema.pre('save', function(next) {
   // const user = this;
   const link = this;
