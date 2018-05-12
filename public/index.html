@@ -4,13 +4,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <title>Jet Fuel</title>
 </head>
 <body>
-  
-  <p>front end client</p>
+
+  <div class="container">
+    <h1>Jet Fuel 	&#128640;</h1>
+    <form class="myForm">
+      <div class="fieldBox fieldBox-full row">
+        <input class="fieldBox__item fieldBox__item-full" type="text" placeholder="link to shorten" name="shorten" />
+      </div>
+      <div class="fieldBox row">
+        <input class="fieldBox__item" type="text" placeholder="link name" name="linkName" />
+        <div class="select-style">
+          <select class="selection"></select>
+        </div>
+      </div>
+      <button class="button button-size" type="submit">shorten link!</button>
+      <div class="error-link"></div>
+    </form>
+    <div class="folder-form">
+      <div class="fieldBox">
+        <input class="fieldBox__item" type="text" placeholder="folder name" name="foldername"/>
+        <div class="error-folder"></div>
+      </div>
+      <button class="createFolder button">create folder</button>
+    </div>
+    <div class="folder-container">
+        <div class="folder-tabs"></div>
+        <div class="content"></div>
+    </div>
+    </div>
 
 
+
+  <script src="js/helper.js"></script>
   <script src="js/scripts.js"></script>
 </body>
 </html>
