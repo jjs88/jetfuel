@@ -24,6 +24,7 @@ LinkSchema.pre('save', function(next) {
   const link = this;
   const random = Math.floor(Math.random() * Math.floor(100000));
   link.shortenedUrl = `/api/jetfuel${random}`;
+  // continue the save process
   next();
 });
 

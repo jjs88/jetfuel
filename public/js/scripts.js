@@ -46,7 +46,7 @@
   //call this when a folder is added
   Helper.updateFolderList();
   //adds folder tabs
-  Helper.fetchFolders();
+  Helper.renderFolderTabs();
 
 
 

@@ -3,6 +3,7 @@ var Helper = (function() {
   const folderTabs = document.querySelector('.folder-tabs');
   const content = document.querySelector('.content');
 
+  // this updates the folder options dropdown list
   async function updateFolderList () {
     const res = await fetch('/api/folders');
     const data = await res.json();
@@ -36,6 +37,7 @@ var Helper = (function() {
     renderFolderContent(data1);
   }
 
+  // used for folder submittal. creates new folder and then the folder list dropdown is updated after
   async function addFolder(data) {
     const res = await fetch('/api/addFolder', {
       method: 'POST',
@@ -43,24 +45,19 @@ var Helper = (function() {
       headers: {
         'content-type': 'application/json'
       }
-    })
-    
+    });
+      
     await res.json();
     //add folder to options dropdown list
     updateFolderList();
     //add to folder tab
-    fetchFolders();
-  }
-
-
-  async function fetchFolders() {
-    const res = await fetch('/api/folders');
-    const data = await res.json();
-    renderFolderTabs(data);
+    renderFolderTabs();
   }
 
   // populates the folder tabs
-  function renderFolderTabs(data) {
+  async function renderFolderTabs() {
+    const res = await fetch('/api/folders');
+    const data = await res.json();
     const folders = data.map(item => {
       return `
         <div class="folder-tab" data-id=${item._id}>${item.name}</div>
@@ -118,7 +115,7 @@ var Helper = (function() {
   return {
     updateFolderList,
     addLink,
-    fetchFolders,
+    renderFolderTabs,
     addFolder
   }
 

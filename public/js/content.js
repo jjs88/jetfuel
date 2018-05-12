@@ -2,11 +2,14 @@ var Content = (function() {
   const folderTabs = document.querySelector('.folder-tabs');
   const content = document.querySelector('.content');
 
+  // event listener for clicking the folder tab
+  // folder id is attached to the data attribute. will be used to make the api call for getting the data
   folderTabs.addEventListener('click', async (e) => {
     const id = e.target.getAttribute('data-id');
     //retrieve folder data
     const res = await fetch(`/api/folder/${id}`);
     const data = await res.json();
+    //render the data to the content DIV
     renderFolderContent(data);
   });
 
@@ -19,8 +22,6 @@ var Content = (function() {
     }).join(' ');
 
     folderTabs.innerHTML = folders;
-
-    // console.log('populate', data);
   }
 
   //populates the folder tab with links when clicked
